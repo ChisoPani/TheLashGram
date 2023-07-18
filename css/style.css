@@ -59,6 +59,9 @@
 .navbar-light .navbar-nav .nav-link {
     color:#fff !important;
 }
+.navbar-light .navbar-nav .nav-link:hover {
+    color:var(--pink) !important;
+}
 .navbar-toggler-icon{
     display: none;
 }
