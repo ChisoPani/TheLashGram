@@ -1,17 +1,27 @@
-// Enable hidden nav bar
-{
-  const nav = document.querySelector(".navbar");
+$('.navbar-toggler').removeAttr('data-toggle'); 
+$('.navbar-toggler').removeAttr('data-target'); 
+let overlay = $('<div>').addClass('navbar-overlay');
 
-  window.addEventListener("scroll", () => {
-     if (window.pageYOffset > 100) {
-      nav.classList.add("navscroll--hidden", 'bg-dark','shadow');
-    } else {
-    setTimeout(function(){
-      nav.classList.remove("navscroll--hidden", 'bg-dark','shadow');
+// Add overlay on body
+$('body').append(overlay);
+// Click handlers 
+$('#bx-menu').click(function() { 
+	// Open sidebar 
+	$('#navbarNav').addClass('show'); 
+	// Hide menu button 
 
-    }, 000);
-    }
+	//show overlay
+	$('.navbar-overlay').show();
 
-    lastScrollY = window.scrollY;
-  });
-}
+	$('#bx-menu').hide(); 
+	// Show close button 
+	$('#bx-x').show(); }); 
+	
+	$('#bx-x').click(function() { 
+		$('.navbar-overlay').hide();
+		// Close sidebar 
+		$('#navbarNav').removeClass('show'); 
+		// Hide close button 
+		$('#bx-x').hide(); 
+		// Show menu button 
+		$('#bx-menu').show(); });
